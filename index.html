@@ -1,25 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Đang chuyển hướng...</title>
-<script>
-window.onload = function() {
-var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-var iosLink = "https://apps.apple.com/us/app/hanvietair/id6756371831";
-var androidLink = "https://play.google.com/store/apps/details?id=com.hanvietairapp";
-var fallbackLink = "https://hanvietair.com/vi";
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script type="text/javascript">
+        (function() {
+            // Danh sách các link - HÃY THAY ĐỔI TẠI ĐÂY
+            var iosLink = "https://apps.apple.com/us/app/hanvietair/id6756371831"; 
+            var androidLink = "https://play.google.com/store/apps/details?id=com.hanvietairapp";
+            var fallbackLink = "https://hanvietair.com/vi";
 
-if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-window.location.href = iosLink;
-} else if (/android/i.test(userAgent)) {
-window.location.href = androidLink;
-} else {
-window.location.href = fallbackLink;
-}
-};
-</script>
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            // Kiểm tra nếu là thiết bị iOS (iPhone, iPad, iPod)
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.location.replace(iosLink);
+            } 
+            // Kiểm tra nếu là thiết bị Android
+            else if (/android/i.test(userAgent)) {
+                window.location.replace(androidLink);
+            } 
+            // Các thiết bị khác (PC, Laptop, ...)
+            else {
+                window.location.replace(fallbackLink);
+            }
+        })();
+    </script>
+    <style>
+        /* Làm cho trang hoàn toàn trắng và sạch sẽ trong lúc chờ */
+        body { background-color: #ffffff; margin: 0; padding: 0; }
+    </style>
 </head>
 <body>
-<p>Đang đưa bạn đến cửa hàng ứng dụng...</p>
 </body>
 </html>
